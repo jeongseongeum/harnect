@@ -283,7 +283,7 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 130px;
+    padding: 130px 0;
     /* background-color: #A80000; */
     position: relative;
 }
