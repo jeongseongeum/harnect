@@ -556,3 +556,7 @@ body {
     right: -80px;
     animation: rotate 15s infinite linear;
 }
+
+#overflow_wrap{
+    overflow: hidden;
+}
