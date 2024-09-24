@@ -1,0 +1,85 @@
+/* 푸터 */
+#footer{
+    height: 476px;
+    /* background: url(../imgs/2_footer/bg_line.png) no-repeat top center ; */
+    position: relative;
+    /* background-color: #D17F7F; */
+    }
+    .footer_bg{
+        position: absolute;
+        top: -133px;
+        left: 50%;
+        margin-left: -1000px;
+        width: 100%;
+        z-index: 11;
+    }
+    .inner_footer{
+    width: 1320px;
+    margin: 0px auto;
+    padding-top: 125px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #A88E8E; */
+    color: #D17F7F;
+    }
+    .inner_footer> div{
+        width: 25%;
+        /* background-color: #ddd; */
+    }
+    .footer_main_text{
+        font-size: 25px;
+        margin-bottom: 30px;
+        /* font-weight: bold; */
+        font-family: "Cormorant Garamond", serif;
+        color: #A80000;
+    }
+    .contect_wrap{
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        /* justify-content: space-between; */
+        /* background-color: #D17F7F; */
+    }
+    .contect_img{
+    width: 15%;
+    }
+    .contect_text{
+    width: 75%;
+    }
+    .size18{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .Donation_Account{
+        text-align: center;
+    }
+    .size15{
+        font-size: 15px;
+    }
+    .right_t{
+        padding-left: 10px;
+    }
+    .footer_right{
+        text-align: end;
+    }
+    .footer_link{
+        display: flex;
+        justify-content: right;
+        /* background-color: #EF8700; */
+    }
+    .footer_link li {
+        width: 15%;
+        /* background-color: #A80000; */
+    }
+    .footer_link li a{
+        /* width: 100%; */
+    }
+    .footer_link li img{
+        display: inline-block;
+    }
+    .pink_2{
+        color: #FFB2B2;
+        margin-bottom: 20px;
+    }
+

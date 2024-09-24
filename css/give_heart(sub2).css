@@ -1,0 +1,512 @@
+/* 애니메이션 */
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textflow1 {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* 왼쪽으로 보낼꺼니까 마이너스 */
+        /* 백퍼신트하면 끝에 공백생기니까 반만적용 */
+        transform: translateX(-50%);
+    }
+}
+@keyframes fish {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-50deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+/* 공통 */
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,em,img,small,strong,b,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tr,th,td,article,aside,footer,header,nav,section,summary,video {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;  
+}
+
+ul,li,ol {
+    list-style: none;
+}
+
+html {
+    font-size: 15px;
+    /* rem기준 */
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #333333;
+}
+#wrap {
+    min-width: 1400px;
+    overflow: hidden;
+
+}
+.main_text{
+    font-size: 30px;
+    font-weight: bold;
+    color: #AF0000;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.b{
+    color: #333333;
+    margin-bottom: 70px;
+}
+.w{
+    color: #ffffff;
+    margin-bottom: 70px;
+}
+.font24{
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.font20{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.font18{
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+
+
+/* 탑시작 */
+#top{
+    height: 535px;
+ background: url(../imgs/give_heart/1_top/bg.jpg)center no-repeat;
+
+
+}
+.top_main_text{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.inner_top{
+    width: 1320px;
+    margin: 0 auto;
+    height: 535px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.top_popup1 img{
+    display: block;
+    position: absolute;
+bottom: 0;
+}
+
+.close_btn{
+    display: inline-block;
+    padding: 5px;
+    color: #333333;
+}
+
+.inner_top h1{
+    margin: 25px 0 15px 0;
+}
+
+/* 섹션1 */
+#section1_wrap{
+    background-color: white;
+    position: relative;
+    }
+#section1{
+    width: 1320px;
+    margin: 150px auto 50px;
+    height: 500px;
+    padding-top: 100px;
+    padding-left: 200px;
+    text-align: center;
+    position: relative;
+    background: url(../imgs/give_heart/2_section1/bg_path.png) no-repeat top right ;
+    /* background-color: aquamarine; */
+
+}
+
+#section1 p, #section1 h1{
+    line-height: 30px;
+    text-align: left;
+    margin-left: 400px;
+    
+}
+.redheart{
+    color: #AF0000;
+}
+.bg_cat{
+    position: absolute;
+    top: -280px;
+    left: -180px;
+}
+.letter{
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    z-index: 3;
+}
+.badge_cat{
+    position: absolute;
+    top: 170px;
+    right: 420px;
+    z-index: 3;
+}
+.badge_heart{
+    position: absolute;
+    top: 200px;
+    right: 370px;
+    z-index: 3;
+}
+.magazine{
+    position: absolute;
+    top: 230px;
+    right: 60px;
+    z-index: 3;
+}
+
+/* 섹션2 */
+#section2{
+ width: 1320px;
+ margin: 150px auto
+ /* background-color: aqua; */
+}
+.section2_center{
+    text-align: center;
+}
+
+/* 아코디언 */
+.accordion {
+    width: 100%;
+    max-width: 1080px;
+    height: 500px;
+    overflow: hidden;
+    margin: 50px auto;
+}
+
+.accordion ul {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion ul li {
+    display: table-cell;
+    vertical-align: bottom;
+    position: relative;
+    width: 16.666%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 500ms ease;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+/* "입양" text, initially visible */
+.accordion ul li .adopt {
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: bold;
+    position: absolute;
+    font-family: 'GmarketSansMedium';
+    color: white;
+    top: 42px;
+    left: 66px;
+    margin-left: 10px;
+    transform: translate(-37%, -18%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 10;
+}
+
+/* On hover, make the "입양" text disappear */
+.accordion ul li:hover .adopt {
+    opacity: 0; /* Fade out on hover */
+}
+
+.accordion ul li div {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.accordion ul li div a {
+    display: inline-block;
+    height: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    vertical-align: bottom;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none;
+    font-family: Open Sans, sans-serif;
+    transition: background-color 0.5s ease; /* Transition for background color */
+    background-color: rgba(155, 136, 118, 0.603); /* Default background color */
+}
+
+/* Remove the background color on hover */
+.accordion ul li:hover div a {
+    background-color: rgba(155, 136, 118, 0); /* Transparent on hover */
+}
+
+/* Make inner text elements visible on hover */
+.accordion ul li div a * {
+    opacity: 0;
+    margin: 0;
+    text-overflow: ellipsis;
+    position: relative;
+    z-index: 5;
+    white-space: nowrap;
+    transform: translateX(-20px);
+    transition: all 400ms ease;
+    padding-left: 50px;
+}
+
+.accordion ul li div a h2 {
+    text-overflow: clip;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 400px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'GmarketSansMedium';
+    color: white;
+}
+
+.accordion ul li div a p {
+    font-size: 13.5px;
+}
+
+/* Background images */
+.accordion ul li:nth-child(1) {
+    background-image: url(../imgs/give_heart/3_section2/section3_img1.jpg);
+}
+
+.accordion ul li:nth-child(2) {
+    background-image: url(../imgs/give_heart/3_section2/section3_img2.jpg);
+}
+
+.accordion ul li:nth-child(3) {
+    background-image: url(../imgs/give_heart/3_section2/section3_img3.jpg);
+}
+
+.accordion ul li:nth-child(4) {
+    background-image: url(../imgs/give_heart/3_section2/section3_img4.jpg);
+}
+
+.accordion ul li:nth-child(5) {
+    background-image: url(../imgs/give_heart/3_section2/section3_img5.jpeg);
+}
+
+/* Accordion hover effects */
+.accordion ul:hover li {
+    width: 8%;
+}
+
+.accordion ul:hover li:hover {
+    width: 50%;
+}
+
+/* Make text elements inside appear on hover */
+.accordion ul:hover li:hover a * {
+    opacity: 1;
+    transform: translateX(0);
+}
+.accordion ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust height for how much gradient you want */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Black gradient */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+/* Show gradient on hover */
+.accordion ul li:hover::after {
+    opacity: 1;
+}
+
+/* 섹션3 */
+
+#section3{
+    margin: 250px 0;
+    height: 700px;
+    background: url(../imgs/give_heart/4_section3/section3_bgimg.jpg) repeat-y center;
+    background-attachment: fixed;
+}
+
+/* 섹션4 */
+#section4{
+    height: 800px;
+    margin-bottom: 200px;
+ position: relative;
+}
+.section4_top_main_p{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.section4_top{
+    height: 344px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -660px;
+    z-index: 2;
+    /* animation: section4_top 1.5s; */
+}
+.section4_bottom{
+    height: 344px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -960px;
+    z-index: 2;
+}
+/* @keyframes section4_top {
+    from{
+        transform: translateX(1100px);
+    }
+    to{
+        transform: translateX(0);
+    }
+} */
+
+/* 초기 상태 설정 */
+.section4_top {
+    opacity: 0;
+    transform: translateX(1100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 애니메이션 적용 */
+.section4_top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* section4_bottom 초기 상태 설정 */
+.section4_bottom {
+    opacity: 0;
+    transform: translateX(-1100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* section4_bottom 애니메이션 적용 */
+.section4_bottom.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 글자순차적 애니메이션 */
+/* 기본 스타일 추가 */
+/* .section4_top_text h1, .section4_top_text p {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+} */
+
+
+
+.section4_top img{
+    /* display: block;
+    width: 100%; */
+    
+}
+.section4_top_text{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    z-index: 3;
+}
+.section4_bottom_text{
+    text-align: end;
+    position: absolute;
+    top: 20%;
+    right: 40%;
+    z-index: 3;
+}
+.btn{
+    display: inline-block;
+    border: 0.5px solid #CE0000;
+    border-radius: 50px;
+    color: #CE0000;
+    padding: 10px 50px;
+    margin-top: 50px;
+}
+.orange{
+    display: inline-block;
+    border: 1px solid #FFAA54;
+    color: #dd8329;
+    display: inline-block;
+    border-radius: 50px;
+    padding: 10px 50px;
+    margin-top: 50px;
+}
+.btn:hover{
+    background-color: #CE0000;
+    color: white;
+}
+.orange:hover{
+    background-color: #FFAA54;
+    color: #333333;
+}
+
+
+/* 섹션5 */
+.section5{
+    width: 1320px;
+    margin: 200px auto;
+    /* height: 300px; */
+    /* background-color: aqua; */
+    text-align: center;
+    position: relative;
+}
+.section5_rote{
+    position: absolute;
+    top: -50px;
+    left: 29%;
+    animation: rotate 15s infinite linear;
+}

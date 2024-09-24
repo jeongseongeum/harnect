@@ -1,0 +1,127 @@
+
+#header{
+    /* background-color: #EF8700; */
+        /* overflow: hidden; */
+        background-color: #ffffff;
+        height: 80px;
+        
+    }
+
+    .inner_header_wrap{
+   width: 100%;
+   margin: 0 auto;
+   position: fixed;
+    color: rgb(29, 29, 29);
+    z-index: 9999;
+    }
+    .inner_header{
+
+        z-index: 9999;
+        width: 1320px;
+        margin: 0 auto;
+        /* padding: 0 44px; */
+        display: flex;
+        justify-content: space-between;
+    }
+    .bg_color{
+        color: #333333;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .logo{
+    margin-top: 25px;
+    }
+    .logo a{
+        display: block;
+    }
+    .gnb{
+        width: 960px;
+        display: flex;
+        margin-top: 20px;
+        font-size: 20px;
+        /* background-color: aqua; */
+    }
+    .gnb> li{
+    margin-right: 30px;
+    
+    }
+    .gnb> li a{
+    display: block;
+    padding: 20px;
+    position: relative;
+    /* background-color: aqua; */
+    }
+    .gnb> li:hover a{
+        background-color: #A80000;
+        color: white;
+        background: transparent;
+        color: #be0000;
+    }
+    /* 위아래선 */
+    .gnb> li a:before,.gnb> li a:after{
+        content:'';
+        position:absolute;
+        top:10px;
+        right:0px;
+        height:2px;
+        width:0;
+        background: #be0000;
+        transition:200ms ease all;
+    }
+    .gnb> li a:after{
+        right:inherit;
+        top:50px;
+        left:0;
+        bottom:50px;
+    }
+    .gnb> li a:hover:before,.gnb> li a:hover:after{
+        width:100%;
+        transition:800ms ease all;
+    }
+    
+    
+    .top_link_flex{
+        display: flex;
+    }
+    
+    .top_link> li{
+        margin-left: 52px;
+    }
+    .top_link{
+        display: flex;
+        justify-content: space-between;
+        /* padding: 6px 10px; */
+        cursor: pointer;
+        margin-top: 40px;
+        position: relative;
+        /* background-color: #EF8700; */
+    }
+    .top_link span img{
+        display: block;
+        padding: 5px;
+    }
+    .select_btn{
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        /* background-color: #D17F7F; */
+    }
+    
+    .option{
+        text-align: center;
+        background-color: #eeeeee56;
+        position: absolute;
+        top: 30px;
+        left: 125px;
+        width: 30%;
+        z-index: 99999;
+    }
+    
+    .option p{
+        font-weight: bold;
+        margin: 5px;
+        color: #727272;
+    }
+    .option p:hover{
+        background-color: #a800007e;
+    }
+    

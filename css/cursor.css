@@ -1,0 +1,6 @@
+body, html{
+    cursor: url('../imgs/4_mouse/main_mouse.png')10 10, auto;
+}
+a {
+    cursor: url('../imgs/4_mouse/fow_mouse.png')2 2, auto;
+}

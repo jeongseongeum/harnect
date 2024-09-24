@@ -1,0 +1,703 @@
+/* 애니메이션 */
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textflow1 {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* 왼쪽으로 보낼꺼니까 마이너스 */
+        /* 백퍼신트하면 끝에 공백생기니까 반만적용 */
+        transform: translateX(-50%);
+    }
+}
+@keyframes fish {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-50deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+/* 공통 */
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,em,img,small,strong,b,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tr,th,td,article,aside,footer,header,nav,section,summary,video {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;  
+}
+
+ul,li,ol {
+    list-style: none;
+}
+
+html {
+    font-size: 15px;
+    /* rem기준 */
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #333333;
+}
+#wrap {
+    min-width: 1400px;
+    overflow: hidden;
+
+}
+.main_text{
+    font-size: 30px;
+    font-weight: bold;
+    color: #AF0000;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.b{
+    color: #333333;
+    margin-bottom: 70px;
+}
+.w{
+    color: #ffffff;
+    margin-bottom: 70px;
+}
+.font24{
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.font20{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.font18{
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.font13{
+    font-size: 13px;
+    color: #666;
+}
+
+
+/* 탑시작 */
+#top{
+    height: 535px;
+ background: url(../imgs/connect_heart/1_top/bg.jpg)center no-repeat;
+
+}
+.top_main_text{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.inner_top{
+    width: 1320px;
+    margin: 0 auto;
+    height: 535px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.inner_top h1{
+    margin: 25px 0 15px 0;
+}
+
+/* 왓츠 */
+#whats {
+    width: 1320px;
+    margin: 200px auto;
+    text-align: center;
+}
+
+.whats_ul {
+    width: 1320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.whats_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 128px;
+    position: relative;
+    overflow: hidden; /* Ensures the pseudo-element stays within bounds */
+    margin-bottom: 20px;
+}
+
+.whats_img img {
+    opacity: 0.5;
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+.whats_ul li:hover .whats_img img {
+    opacity: 1;
+}
+
+.whats_ul li {
+    position: relative;
+}
+
+.whats_ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../imgs/connect_heart/2_whats/hover_heart.png) no-repeat top 20px center;
+    /* background-size: cover; */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Smooth opacity transition for hover effect */
+    z-index: 1; /* Ensure it sits above the content */
+}
+
+.whats_ul li:hover::before {
+    opacity: 1; /* Fade in on hover */
+}
+
+.whats_ul li a {
+    position: relative;
+    z-index: 2; /* Ensures the content sits above the pseudo-element */
+}
+
+.whats_ul li a:hover {
+    cursor: url('../imgs/connect_heart/2_whats/hover_mouse.png') 2 2, auto;
+}
+
+
+/* 아카이브 */
+#archive{
+    width: 1320px;
+    margin: 200px auto;
+    text-align: center;
+    /* background-color: aqua; */
+}
+.archive_wrap{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.archive_left{
+    width: 735px;
+    height: 318px;
+    position: relative;
+}
+.archive_left img{
+    display: block;
+    width: 100%;
+}
+.archive_left_wrap{
+    position: relative;
+}
+.archive_left_imgbox{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.archive_img{
+      position: relative;
+}
+.archive_left_imgbox img {
+    position: relative;
+    z-index: 1; /* imgbox 내부 이미지도 앞으로 */
+}
+.archive_left_imgbox p{
+    position: absolute;
+    top: 0;
+    left: 30px;
+    margin-top: 30px;
+    border-top: #AF0000 solid 1px;
+    padding-top: 10px;
+    z-index: 4;
+}
+.btn_box img{
+    cursor: pointer;
+    margin-left: 8px;
+}
+.font20{
+    font-size: 20px;
+}
+.btn_box{
+    display: flex;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.archive_right{
+width: 560px;
+position: relative;
+/* background-color: #AF0000; */
+}
+.archive_right_ul{
+    /* background-color: aqua; */
+    border-top: 2px solid #333333;
+}
+.archive_right_ul li{
+    text-align: left;
+    border-bottom: 1px solid #333333;
+    background-color: white;
+
+}
+.archive_right_ul li a{
+    display: block;
+    padding: 20px 30px ;
+    /* background-color: #FFA200; */
+}
+.archive_right_ul li:hover{
+    font-weight: bold;
+}
+.archive_bold{
+    font-family: 'GmarketSansMedium';
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.right_book{
+    position: absolute;
+    top: -130px;
+    right: -220px;
+
+}
+.catbook{
+    position: absolute;
+    top: 0;
+    left: -340px;
+}
+.left_book{
+    position: absolute;
+    bottom: -80px;
+    left: -180px;
+    z-index: 10;
+}
+.archive_img>.swiper {
+    margin-top: 0px;
+      width: 100%;
+      height: 100%;
+    }
+.archive_img>.swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+.archive_img>.swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+.swiper-button-next{
+   z-index: 10;
+ }
+
+
+/* 이벤트 */
+#event{
+    width: 1320px;
+    margin: 200px auto;
+    text-align: center;
+    position: relative;
+    /* background-color: aquamarine; */
+}
+.event_wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.event_wrap div{
+    width: 640px;
+    margin-top: 30px;
+}
+.event_wrap img{
+    display: block;
+}
+.event_left {
+    overflow: hidden;
+}
+.event_left img{
+    transition: all 1s;
+}
+.event_left:hover img{
+    transform: scale(1.1);
+}
+
+.event_right{
+    height: 235px;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+}
+.event_right img{
+    transition: all 1s;
+}
+.event_right:hover img{
+    transform: scale(1.1);
+}
+.inner_event_right{
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+.inner_event_right p{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #ffffff;
+    color: white;
+    padding: 30px ;
+    border-radius: 50px;
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 1s;
+}
+.event_right:hover .inner_event_right p{
+    opacity: 1;
+    transform: translateY(60px);
+}
+.event_right:hover .inner_event_right{
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+.event_btn{
+    position: absolute;
+    top: 40px;
+    right: 0;
+
+}
+.main_btn{
+    display: inline-block;
+    color: #AF0000;
+    border: 1px solid #AF0000;
+    padding: 3px 15px;
+    border-radius: 20px;
+}
+.main_btn:hover{
+    background-color: #AF0000;
+    color: white;
+}
+
+/* waiting */
+#waiting{
+    width: 1320px;
+    margin: 200px auto;
+    text-align: center;
+    /* height: 1000px; */
+}
+.select_box{
+    margin-top: 50px;
+    height: 131px;
+    background: url(../imgs/connect_heart/5_waiting_for_heart/bg.png) no-repeat center;
+    display: flex;
+    align-items: center;
+    padding-left: 180px;
+    position: relative;
+}
+/* 셀렉트 */
+#wrap1{
+    width: 180px;
+    position: relative;
+}
+.select_btn1{
+    /* border: 1px solid #838383; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+    cursor: pointer;
+
+}
+.name{
+    width: 200px;
+ text-align: left;
+ /* background-color: aqua; */
+}
+.select_btn1{
+    background-color: white;
+}
+.ani{
+    background-color: #ffffff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+.ani p{
+    padding: 8px 12px;
+}
+.ani p:hover{
+    background-color: #FFE6CE;
+}
+.turn1{
+    transform: rotate(180deg);
+}
+
+/* 성별 */
+#wrap2{
+    width: 180px;
+    position: relative;
+}
+.select_btn2{
+    /* border: 1px solid #838383; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+    cursor: pointer;
+
+}
+.gender_wrap{
+    width: 200px;
+ text-align: left;
+ /* background-color: aqua; */
+}
+.select_btn2{
+    background-color: white;
+}
+.gender{
+    background-color: #ffffff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+.gender p{
+    padding: 8px 12px;
+}
+.gender p:hover{
+    background-color: #FFE6CE;
+}
+.turn2{
+    transform: rotate(180deg);
+}
+
+/* 나이 */
+#wrap3{
+    width: 180px;
+    position: relative;
+}
+.select_btn3{
+    /* border: 1px solid #838383; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+    cursor: pointer;
+
+}
+.age_wrap{
+    width: 200px;
+ text-align: left;
+ /* background-color: aqua; */
+}
+.select_btn3{
+    background-color: white;
+}
+.age{
+    background-color: #ffffff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+.age p{
+    padding: 8px 12px;
+}
+.age p:hover{
+    background-color: #FFE6CE;
+}
+.turn3{
+    transform: rotate(180deg);
+}
+
+/* 성격 */
+#wrap4{
+    width: 180px;
+    position: relative;
+}
+.select_btn4{
+    /* border: 1px solid #838383; */
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+    cursor: pointer;
+
+}
+.character_wrap{
+    width: 200px;
+ text-align: left;
+ /* background-color: aqua; */
+}
+.select_btn4{
+    background-color: white;
+}
+.character{
+    background-color: #ffffff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+.character p{
+    padding: 8px 12px;
+}
+.character p:hover{
+    background-color: #FFE6CE;
+}
+.turn4{
+    transform: rotate(180deg);
+}
+
+.waiting_btn{
+    position: absolute;
+    bottom: 30px;
+    right: 160px;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #FFA200;
+    color: white;
+    border-radius: 20px;
+}
+.waiting_rote{
+    position: absolute;
+    top: -100px;
+    right: 0;
+    animation: rotate 15s infinite linear;
+}
+
+/* 웨이팅 슬라이더 */
+.swiper {
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* @media (max-width: 760px) {
+    .swiper-button-next {
+      right: 20px;
+      transform: rotate(90deg);
+    }
+
+    .swiper-button-prev {
+      left: 20px;
+      transform: rotate(90deg);
+    }
+  } */
+
+  .swiper-button-next:after,.swiper-button-prev:after{
+    display: none;
+  }
+
+  .bold{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px 0;
+
+  }
+  .semi_text{
+    color: #7E7E7E;
+  }
+  .magin{
+    margin-top: 50px;
+  }
+
+
+
+  /* 체크리스트 */
+  #chacklist{
+    height: 1276px;
+    background: url(../imgs/connect_heart/6_chacklist/bg.png) no-repeat center;
+  }
+  .inner_chacklist{
+    width: 1320px;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 120px;
+    position: relative;
+}
+.squ_box{
+
+}
+.squ_box img{
+
+}
+.squ_box_cover{
+    display: inline-block;
+    text-align: left;
+    background-color: white;
+    padding: 80px;
+    line-height: 30px;
+    border-radius: 100px;
+    margin-top: 50px;
+}
+.black{
+    color: #111111;
+}
+.chacklist_dog1{
+    position: absolute;
+    top: -160px;
+    right: -200px;
+}
+.chacklist_dog2{
+    position: absolute;
+    top: 420px;
+    left: -20px;
+}
+.chacklist_dog3{
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+}
+.span_bold{
+    font-weight: bold;
+}
+.span_underline{
+    text-decoration: underline;
+}

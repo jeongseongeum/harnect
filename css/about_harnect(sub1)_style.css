@@ -1,0 +1,616 @@
+/* 애니메이션 */
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textflow1 {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        /* 왼쪽으로 보낼꺼니까 마이너스 */
+        /* 백퍼신트하면 끝에 공백생기니까 반만적용 */
+        transform: translateX(-50%);
+    }
+}
+@keyframes fish {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-50deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+/* 공통 */
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,em,img,small,strong,b,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tr,th,td,article,aside,footer,header,nav,section,summary,video {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;  
+}
+
+ul,li,ol {
+    list-style: none;
+}
+
+html {
+    font-size: 15px;
+    /* rem기준 */
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+    line-height: 1.5em;
+    color: #333333;
+}
+#wrap {
+    min-width: 1400px;
+    overflow: hidden;
+
+}
+
+
+
+/* 탑시작 */
+#top{
+    height: 535px;
+ background: url(../imgs/about_harnect/1_top/main_bg.jpg)center no-repeat;
+
+}
+.top_main_text{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.inner_top{
+    width: 1320px;
+    margin: 0 auto;
+    height: 535px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.inner_top h1{
+    margin: 25px 0 15px 0;
+}
+
+/* 아이덴티티 */
+#identity{
+    width: 1320px;
+    margin: 150px auto 200px;
+    text-align: center;
+}
+.main_text{
+    font-size: 35px;
+    font-weight: bold;
+    color: #AF0000;
+    line-height: 40px;
+}
+.b{
+    color: #333333;
+    margin-bottom: 70px;
+}
+.w{
+    color: #ffffff;
+    margin-bottom: 70px;
+}
+.font24{
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+.font20{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.font18{
+    font-size: 18px;
+}
+.identity_imgbox{
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+/* .dog{
+width: 30%;
+} */
+.symbol{
+    width: 30%;
+    position: relative;
+}
+.dog1{
+    position: absolute;
+    top: 85px;
+    left: -240px;
+    width: 100%;
+    z-index: 9;   
+}
+
+.dog2{
+    position: absolute;
+    top: 135px;
+    left: -180px;
+    width: 100%;
+    z-index: 9;
+}
+.cat1{
+    position: absolute;
+    top: 80px;
+    right: -230px;
+    width: 100%;
+    z-index: 9;
+}
+.cat2{
+    position: absolute;
+    top: 110px;
+    right: -280px;
+    width: 100%;
+    z-index: 9;
+}
+.meaning{
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 100%;
+    z-index: 9;
+}
+.over_box:after{
+ 
+}
+
+/* .cat{
+    width: 30%;
+} */
+ span{
+    font-weight: bold;
+ }
+
+
+/* 기본 스타일 */
+.underline {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* 형광펜이 텍스트를 넘지 않도록 */
+}
+
+/* 형광펜 애니메이션 */
+@keyframes highlightAnimation {
+    0% {
+        transform: translateX(-100%); /* 텍스트의 왼쪽 바깥에서 시작 */
+        opacity: 0; /* 처음에는 보이지 않음 */
+    }
+    50% {
+        transform: translateX(0); /* 텍스트 아래로 이동 */
+        opacity: 1; /* 완전히 보임 */
+    }
+    100% {
+        transform: translateX(100%); /* 텍스트의 오른쪽 바깥으로 이동 */
+        opacity: 1; /* 사라짐 */
+    }
+}
+
+/* 형광펜 스타일 */
+.underline::before {
+    content: ''; /* 빈 콘텐츠 생성 */
+    position: absolute;
+    left: -100%; /* 텍스트의 왼쪽 바깥에서 시작 */
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 203, 203, 0.726); /* 형광펜 색상 */
+    z-index: -1; /* 텍스트 뒤에 위치하도록 */
+    animation: highlightAnimation 2s ease-in-out forwards; /* 애니메이션 설정 */
+}
+
+/* 순차적으로 나타나게 하기 위한 설정 */
+.underline:nth-of-type(1)::before {
+    animation-delay: 0s;
+}
+
+.underline:nth-of-type(2)::before {
+    animation-delay: 1s;
+}
+
+.underline:nth-of-type(3)::before {
+    animation-delay: 2s;
+}
+
+.underline:nth-of-type(4)::before {
+    animation-delay: 2.5s;
+}
+
+/* 추가적인 애니메이션 지연이 필요한 경우 계속 추가 */
+
+ 
+ /* 포우핸드 */
+ #pow_hand{
+    height: 800px;
+    margin-top: 200px;
+ }
+ .inner_hand{
+    position: relative;
+ }
+ .inner_hand img{
+ display: block;
+ width: 100%;
+ }
+ .fow_img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1100px;
+    /* width: 100%; */
+    z-index: 4;
+ }
+.fow_text{
+    position: absolute;
+    top: 100px;
+    left: 450px;
+    width: 100%;
+ z-index: 5;
+}
+ .hand_img{
+    position: absolute;
+    top: 180px;
+    right: 50%;
+    margin-right: -1250px;
+    z-index: 1;
+ }
+
+ .heart_img{
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    margin-left: -70px;
+    z-index: 3;
+ }
+/* 아이덴티티 순차적으로 */
+
+
+
+ /* 섹션1 */
+ #section1{
+    height: 700px;
+    position: relative;
+ }
+.section1_bg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /* margin-left: -960px; */
+    width: 100%;
+    z-index: 2;
+}
+
+ .inner_section1{
+    width: 1320px;
+    margin: 100px auto;
+    position: relative;
+    /* background-color: rgb(125, 125, 255); */
+ }
+ .section1_left{
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+ /* background-color: #ffd1d1; */
+ }
+ .section1_left ul{
+    z-index: 9;
+    display: flex;
+    /* justify-content: space-between; */
+    text-align: center;
+    /* background-color: aqua; */
+ }
+ .section1_left ul li{
+    width: 16%;
+    /* background-color: aqua; */
+ }
+ .section1_left ul li img{
+    display: block;
+    /* width: 100%; */
+ }
+ .section1_left ul li p{
+    margin-top: 10px;
+    margin-left: 30px;
+ }
+ .section1_rigth{
+    padding-top: 90px;
+ position: absolute;
+ top: 0;
+ right: 100px;
+ z-index: 9;
+ }
+ .text_rotate{
+    position: absolute;
+    top: -50px;
+    right: -200px;
+    z-index: 1;
+ }
+/* 섹션1 배경 */
+.section1_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* 배경 이미지의 z-index */
+}
+
+.section1_bg img {
+    width: 100%;
+    height: auto;
+    transform: translateX(-1600px); /* 초기 위치 설정 */
+    transition: transform 2s ease-in-out; /* transition 사용 */
+}
+
+/* .animate 클래스가 추가되면 transform 속성 변경 */
+.section1_bg.animate img {
+    transform: translateX(0);
+}
+
+/* .text_rotate의 이미지가 배경 뒤로 가도록 설정 */
+.text_rotate {
+    position: absolute;
+    top: -50px;
+    right: -200px;
+    z-index: 0; /* .text_rotate의 z-index를 0으로 설정하여 배경 뒤로 가게 함 */
+}
+
+.text_rotate img {
+    animation: rotate 15s infinite linear;
+}
+
+/* 애니메이션 설정 (필요에 따라) */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 섹션1 테스트 */
+#section1 {
+    height: 700px;
+    position: relative;
+}
+
+
+/* 섹션1 배경 */
+.section1_bg {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.section1_bg img {
+    width: 100%;
+    height: auto;
+    transform: translateX(-1600px); /* 초기 위치 설정 */
+    transition: transform 2s ease-in-out; /* transition 사용 */
+}
+
+/* .animate 클래스가 추가되면 transform 속성 변경 */
+.section1_bg.animate img {
+    transform: translateX(0);
+}
+@keyframes section1 {
+    from {
+        transform: translateX(-1600px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* .fade-in 클래스 정의 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 요소별 transition-delay 설정 */
+.fade-in:nth-of-type(1) {
+    transition-delay: 0s;
+}
+
+.fade-in:nth-of-type(2) {
+    transition-delay: 0.5s;
+}
+
+.fade-in:nth-of-type(3) {
+    transition-delay: 1s;
+}
+
+.fade-in:nth-of-type(4) {
+    transition-delay: 1.5s;
+}
+
+.fade-in:nth-of-type(5) {
+    transition-delay: 2s;
+}
+
+/* 섹션2 */
+#section2{
+    height: 600px;
+   background: url(../imgs/about_harnect/5_section2/bgimg1.jpg) repeat-y center;
+   background-attachment: fixed;
+   color: white;
+}
+.inner_section2{
+    width: 1320px;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 섹션3 */
+#section3{
+    height: 1300px;
+    position: relative;
+    /* background-color: aqua; */
+}
+.inner_section3{
+    width: 1320px;
+    margin: 100px auto;
+    text-align: center;
+    
+}
+.inner_section3 .main_text{
+    margin-bottom: 30px;
+}
+.section3_catdog{
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    margin-left: -600px;
+    z-index: 10;
+    width: 100%;
+}
+/* 섹션3 이미지 스와이퍼 */
+.section3_imgslide{
+
+    /* position: absolute;
+    top: 200px;
+    left: 50%;
+    margin-left: -960px;
+    z-index: 9; */
+}
+.swiper {
+    width: 2000px;
+    margin: 0 auto;
+}
+.swiper-wrapper{
+    transition-timing-function: linear;
+    margin-top: 20px;
+}
+.swiper-wrapper li{
+    width: 226px;
+    height: 158px;
+}
+
+.swiper-slide {
+    /* text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: top; */
+}
+
+.swiper-wrapper li img {
+    display: block;
+    width: 100%;
+}
+
+.section3_bottombox{
+    width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* background-color: #333333; */
+}
+.section3_left{
+    width: 660px;
+ /* background-color: #AF0000; */
+}
+
+.section3_textimg{
+    width: 660px;
+    margin: 50px auto 100px;
+    height: 482px;
+    text-align: center;
+    /* margin-left: 500px; */
+    /* background-color: aquamarine; */
+    
+}
+
+.section3_textimg img{
+    display: block;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+/* 위드컴퍼니 이미지슬라이드 */
+.section3_withcompany_slide{
+width: 100%;
+height: 200px;
+display: flex;
+text-align: center;
+align-items: center;
+/* background-color: #AF0000; */
+
+}
+.section3_withcompany_slide .swiper-wrapper{
+    width: 100%;
+    height: 200px;
+}
+.section3_withcompany_slide .swiper-slide{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* background-color: #333333; */
+}
+.section3_withcompany_slide .swiper-slide img{
+    display: block;
+    width: 100%;
+    /* height: 100%; */
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    display: none;
+}
+
+.fish_img{
+    position: absolute;
+    bottom: 220px;
+    right: -250px;
+    animation: fish 4s infinite;
+}
+
+/* 섹션1 이미지 순차적 테스트 */
+.section1_left .fade_in, .section1_rigth{
+    opacity: 0;
+}
+
+#identity .identity_fade2{
+    opacity: 0;
+}
